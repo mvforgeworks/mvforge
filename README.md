@@ -30,8 +30,10 @@ See [assessment/README.md](assessment/README.md) for full documentation.
 
 ## Agents
 
+**Repo:** https://github.com/mvill72/auditforge
+
 - **Cursor** — Python pipeline, prompts, integrations
-- **Hermes** — Next.js web app (read `assessment/HERMES_BUILD_PROMPT.md` first)
+- **Hermes** — Next.js web app — paste `assessment/HERMES_ONBOARDING.md` to sync, then read `assessment/HERMES_BUILD_PROMPT.md`
 
 ## Deploy (CasaOS)
 

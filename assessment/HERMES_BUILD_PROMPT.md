@@ -1,9 +1,12 @@
-# Hermes Build Prompt — MV Forge AI Assessment Platform
+# Hermes Build Prompt — AuditForge
 
-> **Shared source of truth** for parallel development. Cursor owns the Python pipeline; Hermes owns the web application layer. Both agents should read `assessment/` before making changes.
+> **Shared source of truth** for parallel development. Cursor owns the Python pipeline; Hermes owns the web application layer. Both agents should `git pull` from GitHub before making changes.
 
+**GitHub:** https://github.com/mvill72/auditforge  
 **Company:** MV Forge  
-**Repo root:** `/home/lxforge/Documents/mvforge`  
+**CasaOS path:** `/DATA/Documents/auditforge`  
+**Laptop path:** `~/Documents/mvforge` (legacy name — same repo)  
+**Onboarding prompt:** `assessment/HERMES_ONBOARDING.md` (paste into Hermes to sync)  
 **Existing backend:** `assessment/` (Python — do not rewrite unless integrating via API)
 
 ---
@@ -56,7 +59,7 @@ See `assessment/templates/SECTION_MAP.md` for slide-by-slide mapping.
 Read these files before writing code:
 
 ```
-mvforge/
+auditforge/                         # https://github.com/mvill72/auditforge
 ├── .env.example                    # ANTHROPIC_API_KEY, HOURLY_RATE, BOOKING_URL, etc.
 ├── assessment/
 │   ├── question_bank.yaml          # Interview questions (general + 5 industries)
@@ -533,7 +536,7 @@ mvforge/
 | **Cursor** | Python pipeline, prompts, Retell webhook, `question_bank.yaml`, template files, this doc |
 | **Hermes** | Next.js UI, Prisma, FastAPI wrapper, dashboard, report renderer, export |
 
-Both agents must read `assessment/HERMES_BUILD_PROMPT.md` and `assessment/templates/SECTION_MAP.md` before making changes.
+Both agents must `git pull origin main` and read `assessment/HERMES_ONBOARDING.md`, this file, and `assessment/templates/SECTION_MAP.md` before making changes. Push all changes to https://github.com/mvill72/auditforge.
 
 ---
 
