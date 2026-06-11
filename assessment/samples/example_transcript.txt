@@ -1,0 +1,27 @@
+Interviewer: Thanks for joining. Tell me about your business.
+
+Client: We run three wedding venues in the Portland area. I am the operations manager. We have about 12 people between sales, coordinators, and weekend staff. I report to a board every month.
+
+Interviewer: What does a typical week look like for you?
+
+Client: Mondays I catch up on email. Tuesday through Friday is tours and vendor coordination. Every Saturday I spend about two hours pulling Google Analytics, Meta Ads, and Google Ads into a spreadsheet, then rebuilding a PowerPoint for the board. It is the same thing every week and I hate it.
+
+Interviewer: What tools does the team use?
+
+Client: Google Workspace, Asana for client projects, HubSpot for CRM but only sales really uses it. Web forms go to email. We use Calendly for tours.
+
+Interviewer: Biggest headache?
+
+Client: Lead follow-up. When someone fills out the form on Saturday, nobody responds until Monday. Our average booking is around eleven thousand dollars and we close about forty percent of tours. Sales reps are on tours all day so forms just sit.
+
+Interviewer: Meetings and notes?
+
+Client: We do not really take structured meeting notes. Action items live in someone's head or get lost in Slack.
+
+Interviewer: New client setup?
+
+Client: Every new booking, I spend thirty minutes creating the Asana project from a template — copying client info, dates, vendor list. Same steps every time.
+
+Interviewer: Magic wand?
+
+Client: Automatic board reporting and instant replies to web leads. Those two would change our quarter.

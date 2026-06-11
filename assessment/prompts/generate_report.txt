@@ -1,0 +1,104 @@
+You are writing a client-facing AI Tools Assessment report. Tone: professional, direct, encouraging. No jargon. The client paid $1,000 for this — they should feel heard and see a clear path forward.
+
+## Client
+- Business: {{client_name}}
+- Industry: {{industry}}
+- Assessment date: {{assessment_date}}
+- Hourly rate for ROI: ${{hourly_rate}}/hr
+
+## Analysis notes (from prior step)
+<analysis>
+{{analysis}}
+</analysis>
+
+## Report structure
+Write the full report in markdown matching these sections exactly. Use ## for section headings.
+
+---
+
+## Executive Summary
+2–3 paragraphs restating who they are, their top 3 pain points (in their words), and the headline opportunity. End with: "This report maps quick wins you can implement this week and larger opportunities we can tackle together."
+
+## Impact–Effort Matrix
+Present all identified pain points in a markdown table:
+
+| Pain Point | Effort | Impact | Quadrant |
+|------------|--------|--------|----------|
+| ... | Low/Med/High | Low/Med/High | Quick Win / Major Project / Fill-In / Ignore |
+
+Quadrant definitions (match the template):
+- **Quick Win** — high impact, low effort (this report focuses here)
+- **Major Project** — high impact, high effort (phase in after quick wins)
+- **Fill-In** — low impact, low effort (when time allows)
+- **Ignore** — low impact, high effort (not worth it now)
+
+Add a short paragraph on where to focus first.
+
+## Recommended Solutions
+For each quick-win pain point (low effort, high impact), use this sub-structure:
+
+### [Pain Point Name]
+**What we heard:** [quote or paraphrase from interview]
+
+**Recommended tool:** [Tool name] — [one-line description]
+
+| | |
+|---|---|
+| Monthly cost | $X or Free |
+| Time to implement | X hours / X days |
+| Difficulty | Easy / Moderate |
+
+**How it helps:** 2–3 sentences tied to their specific situation.
+
+**Implementation notes:**
+1. ...
+2. ...
+3. ...
+
+## Your 4-Day Quick Wins Plan
+
+| Day | Action | Time | Outcome |
+|-----|--------|------|---------|
+| Day 1 | ... | ~X min | ... |
+| Day 2 | ... | ~X min | ... |
+| Day 3 | ... | ~X min | ... |
+| Day 4 | ... | ~X min | ... |
+
+Keep each day to one primary action. Total time under 4 hours.
+
+## Financial Impact
+Show the math clearly:
+
+- **Hours reclaimed per week:** X hrs (from quick wins only)
+- **Monthly value of time saved:** X hrs × 4.3 weeks × ${{hourly_rate}}/hr = **$X**
+- **Estimated monthly tool costs:** $X
+- **Net monthly benefit:** **$X**
+- **Assessment payback:** This report pays for itself in [X weeks/days] if you implement the Day 1–2 recommendations.
+
+Use conservative estimates. Label assumptions.
+
+## What Comes After Quick Wins
+Present 3 upsell opportunities (template has 3 slots) without hard-selling. Frame as natural next steps.
+
+For each:
+### [Project Name] — Est. $X,XXX–$X,XXX
+**The situation:** ...
+**What we'd build:** ...
+**Expected outcome:** ...
+
+End with: "On our follow-up call, we'll walk through this report together and answer any questions. [Book your 30-minute walkthrough →]({{booking_url}})"
+
+## Your Next Steps
+1. Review this report before our call
+2. Try the Day 1 quick win
+3. Book your follow-up: {{booking_url}}
+4. Bring questions about anything in "What Comes After Quick Wins"
+
+---
+
+Rules:
+- Do not recommend tools that require enterprise IT to deploy unless flagged as "larger project"
+- Prefer real product names over categories
+- If something was inferred, say "based on what you described"
+- Do not include internal notes or upsell pricing logic — only client-facing ranges
+- Keep total length scannable: use tables and bullets, not walls of text

@@ -1,0 +1,123 @@
+# Structured intake question bank for AI business assessments.
+# Used by: live Zoom interviews, Retell voice agent (Annie), and intake prep.
+
+meta:
+  version: "1.0"
+  interview_duration_minutes: "20-30"
+  rules:
+    - Do not prescribe solutions during the interview.
+    - Start general, then go industry-specific.
+    - Let the client talk; follow up on vague answers.
+    - Capture tool names, time estimates, and who owns each process.
+
+categories:
+  business_overview:
+    label: Business Overview
+    questions:
+      - What does your business do, and who do you serve?
+      - How many people are on your team? What does each person primarily handle?
+      - What does a typical week look like for you as the owner?
+      - Which parts of the business do you still handle personally?
+
+  current_tools:
+    label: Current Tools & Tech Stack
+    questions:
+      - What software and tools does your team use every day?
+      - Do you have a CRM, project management tool, or shared inbox?
+      - Are there tools you pay for but barely use?
+      - Where does information get stuck — email, spreadsheets, text messages?
+
+  time_drains:
+    label: Time Drains & Pain Points
+    questions:
+      - What is the biggest headache in your workday right now?
+      - What tasks take more time than they should?
+      - What do you keep saying you will fix but never get to?
+      - If you could reclaim 5 hours a week, where would they come from?
+
+  communication:
+    label: Meetings & Communication
+    questions:
+      - How do you run internal and client meetings?
+      - Do you take notes? Who follows up on action items?
+      - What gets lost between meetings?
+      - How does your team coordinate day to day?
+
+  leads_and_sales:
+    label: Leads & Sales
+    questions:
+      - How do leads come in — website, phone, referrals, ads?
+      - How quickly does someone respond to a new lead?
+      - What happens when a lead comes in after hours or on weekends?
+      - Where do leads fall through the cracks?
+
+  reporting:
+    label: Reporting & Analytics
+    questions:
+      - Do you pull reports for a board, partner, or yourself?
+      - How often, and how manual is that process?
+      - What data sources do you copy between systems?
+      - How long does your weekly or monthly reporting take?
+
+  team_coordination:
+    label: Team Coordination
+    questions:
+      - How do you assign and track tasks?
+      - How do new clients or projects get onboarded?
+      - What is duplicated across team members?
+      - Where do handoffs break down?
+
+  biggest_wish:
+    label: Magic Wand
+    questions:
+      - If one thing could run automatically that you do manually today, what would it be?
+      - What would need to be true for you to trust an AI or automation with that task?
+
+industries:
+  real_estate:
+    label: Real Estate Brokerage
+    questions:
+      - How do you handle repetitive listing questions from buyers?
+      - What is your average speed-to-lead on new inquiries?
+      - Do agents maintain their own follow-up systems or is it centralized?
+      - How are listing documents shared and updated?
+
+  wedding_venue:
+    label: Wedding Venue / Events
+    questions:
+      - How do tour requests and web form leads get followed up?
+      - What is your average deal size and tour-to-booking conversion rate?
+      - Do you manually pull marketing analytics for reporting?
+      - How is each new booking set up in your project or ops system?
+
+  business_brokerage:
+    label: Business Brokerage
+    questions:
+      - How many inquiries do you get per listing in the first week?
+      - What percentage of buyer emails are repeat questions?
+      - Where is the CIM or SIM stored, and who can access it?
+      - How do you qualify serious buyers vs. tire-kickers?
+
+  service_business:
+    label: Service Business (General)
+    questions:
+      - What is your average job or contract value?
+      - How do after-hours inquiries get handled?
+      - What does your quote or estimate process look like?
+      - How do you follow up with leads who do not book immediately?
+
+  professional_services:
+    label: Professional Services (Law, Accounting, Insurance)
+    questions:
+      - How do clients submit documents and requests?
+      - What intake steps are still manual?
+      - How do you track deadlines and compliance tasks?
+      - What client communication could be self-serve?
+
+follow_up_probes:
+  # Use when answers are vague
+  - Roughly how many hours per week does that take?
+  - Who on the team owns that process today?
+  - What tools are involved, even if they are spreadsheets?
+  - What breaks when you are busy or out of the office?
+  - Have you tried to fix this before? What happened?

@@ -1,0 +1,16 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+assessment/output/*
+!assessment/output/.gitkeep
+
+# Sensitive / local-only files
+*.conf
+**/EIN*.pdf
+**/Form SS4*.pdf
+**/LLC*.pdf
+**/Operating Agreement.pdf
+**/Final Letter.pdf
+**/*Confirmation Letter*.pdf
+202*.PDF
