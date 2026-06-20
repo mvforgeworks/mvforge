@@ -1,169 +1,65 @@
-import {
-  Card,
-  COMPANY,
-  ForgeButton,
-  ForgeLogo,
-  LINKS,
-  SectionLabel,
-  SiteFooter,
-  SiteHeader,
-} from "@mvforge/brand";
+import Image from "next/image";
 
-const FEATURES = [
-  {
-    title: "Expiring Domain Scanner",
-    desc: "Real-time discovery of expiring and undervalued domains before the market catches on.",
-  },
-  {
-    title: "AI Valuation Engine",
-    desc: "Comparables, traffic estimates, and brand-fit scoring — forge decisions with data, not guesswork.",
-  },
-  {
-    title: "Portfolio Command",
-    desc: "Manage acquisitions and flips from one dashboard — synced to Sovereign Dashboard (coming soon).",
-  },
-  {
-    title: "Privacy-First Crawler",
-    desc: "Self-hosted option with Mullvad/OPNsense integration. Your research stays sovereign.",
-  },
-];
-
-const TIERS = [
-  {
-    name: "Scanner",
-    price: "Free",
-    period: "freemium tier",
-    features: [
-      "Daily expiring domain feed",
-      "Basic valuation signals",
-      "Email alerts (limited)",
-      "Self-hosted path documented",
-    ],
-  },
-  {
-    name: "Pro",
-    price: "$49",
-    period: "/month",
-    features: [
-      "Real-time scanner + filters",
-      "AI valuation reports",
-      "Unlimited alerts",
-      "Portfolio tracking",
-    ],
-  },
-  {
-    name: "Agency",
-    price: "$99",
-    period: "/month",
-    features: [
-      "Lead-gen automation hooks",
-      "Forge Network integration",
-      "Done-for-you flip referrals",
-      "Priority support",
-    ],
-  },
-];
-
-function Nav() {
+export default function Home() {
   return (
-    <nav className="nav-links">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href={LINKS.hub}>MVForge</a>
-      <a href={`mailto:${COMPANY.email}?subject=DomainForge%20Early%20Access`}>Contact</a>
-    </nav>
-  );
-}
-
-export default function DomainForgePage() {
-  return (
-    <>
-      <SiteHeader logo={<ForgeLogo name="DomainForge" />} nav={<Nav />} badge="DOMAIN INTELLIGENCE FORGE" />
-
-      <main>
-        <section className="hero container">
-          <SectionLabel>VETERAN-OWNED · OHIO · BY MVFORGE · PHASE 3</SectionLabel>
-          <h1>
-            Hammer expired potential
-            <br />
-            <span className="forge-gradient-text">into recurring revenue.</span>
+    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={100}
+          height={20}
+          priority
+        />
+        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+            To get started, edit the page.tsx file.
           </h1>
-          <p className="lead">
-            The sovereign domain acquisition engine — scan, value, and monetize
-            digital real estate with privacy-first intelligence built for indie
-            hackers, agencies, and network engineers.
+          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            Looking for a starting point or more instructions? Head over to{" "}
+            <a
+              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              className="font-medium text-zinc-950 dark:text-zinc-50"
+            >
+              Templates
+            </a>{" "}
+            or the{" "}
+            <a
+              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              className="font-medium text-zinc-950 dark:text-zinc-50"
+            >
+              Learning
+            </a>{" "}
+            center.
           </p>
-          <div className="hero-actions">
-            <ForgeButton href={`mailto:${COMPANY.email}?subject=DomainForge%20Early%20Access`}>
-              Request early access
-            </ForgeButton>
-            <ForgeButton href="#features" variant="secondary">
-              See the model
-            </ForgeButton>
-          </div>
-          <div className="scanner-preview">
-            <div className="line"><span className="highlight">domainforge scan</span> --expiring --tld com,io</div>
-            <div className="line">→ 847 candidates · 12 high-fit · 3 below market</div>
-            <div className="line">→ valuation: forge-realty.io · est. $2.4k · brand-fit 94%</div>
-            <div className="line">→ alert queued · portfolio synced</div>
-          </div>
-        </section>
-
-        <section id="features" className="section container">
-          <SectionLabel>FLYWHEEL FIT</SectionLabel>
-          <h2>Secure names. Feed leads. Compound equity.</h2>
-          <div className="feature-grid">
-            {FEATURES.map((f) => (
-              <Card key={f.title} glow>
-                <h3>{f.title}</h3>
-                <p>{f.desc}</p>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <section id="pricing" className="section container">
-          <SectionLabel>PRICING (TARGET)</SectionLabel>
-          <h2>Freemium scanner → premium intelligence.</h2>
-          <div className="pricing-grid">
-            {TIERS.map((tier) => (
-              <Card key={tier.name} glow={tier.name === "Pro"}>
-                <div className="price-card">
-                  <h3>{tier.name}</h3>
-                  <div className="price">
-                    {tier.price}
-                    <span> {tier.period}</span>
-                  </div>
-                  <ul>
-                    {tier.features.map((f) => (
-                      <li key={f}>{f}</li>
-                    ))}
-                  </ul>
-                  <ForgeButton href={`mailto:${COMPANY.email}?subject=DomainForge%20${tier.name}`}>
-                    Join waitlist
-                  </ForgeButton>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <section className="section container">
-          <div className="cta-band forge-glow">
-            <SectionLabel>SCANNER MVP · IN DEVELOPMENT</SectionLabel>
-            <h2 style={{ marginTop: 0 }}>Landing live. Scanner ships Phase 3.</h2>
-            <p style={{ color: "var(--forge-gray-400)", maxWidth: 520, margin: "0 auto 1.5rem" }}>
-              DomainForge feeds ForgeWorks implementations and AuditForge
-              compliance engagements — one sovereign stack.
-            </p>
-            <ForgeButton href={`mailto:${COMPANY.email}?subject=DomainForge%20Waitlist`}>
-              {COMPANY.email}
-            </ForgeButton>
-          </div>
-        </section>
+        </div>
+        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+          <a
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={16}
+              height={16}
+            />
+            Deploy Now
+          </a>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Documentation
+          </a>
+        </div>
       </main>
-
-      <SiteFooter productName="DomainForge" />
-    </>
+    </div>
   );
 }
