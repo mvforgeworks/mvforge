@@ -12,7 +12,7 @@
 | `mvforge-io` | `apps/hub` | **https://mvforge.io** | mvforge-io-five.vercel.app |
 | `auditforge-local` | `apps/auditforge` | **https://audit.mvforge.io** | auditforge-local.vercel.app |
 | `forgeworks` | `apps/forgeworks` | **https://forge.mvforge.io** | forgeworks-taupe.vercel.app |
-| `domainforge` | `apps/domainforge` | **https://domainforge-iota.vercel.app** | — |
+| `domainforge` | `apps/domainforge` | **https://domainforge-iota.vercel.app** | ⚠️ Do not use `domainforge-2yew` (stale template) |
 
 > **DNS note:** Custom subdomains use short names (`audit`, `forge`) not product names. Add `domain.mvforge.io` or `domainforge.mvforge.io` when ready.
 
