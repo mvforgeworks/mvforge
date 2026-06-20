@@ -11,9 +11,9 @@ export const COMPANY = {
 
 export const LINKS = {
   hub: "https://mvforge.io",
-  auditforge: "https://auditforge.mvforge.io",
-  forgeworks: "https://forgeworks.mvforge.io",
-  domainforge: "https://domainforge.mvforge.io",
+  auditforge: "https://audit.mvforge.io",
+  forgeworks: "https://forge.mvforge.io",
+  domainforge: "https://domainforge-iota.vercel.app",
 } as const;
 
 export const PRODUCTS = {

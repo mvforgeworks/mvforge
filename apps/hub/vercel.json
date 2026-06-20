@@ -16,12 +16,12 @@
   "redirects": [
     {
       "source": "/cyberwarrior",
-      "destination": "https://forgeworks.mvforge.io/cyberwarrior",
+      "destination": "https://forge.mvforge.io/cyberwarrior",
       "permanent": false
     },
     {
       "source": "/digital-shield",
-      "destination": "https://forgeworks.mvforge.io/cyberwarrior",
+      "destination": "https://forge.mvforge.io/cyberwarrior",
       "permanent": false
     }
   ]
