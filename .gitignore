@@ -14,3 +14,7 @@ assessment/output/*
 **/Final Letter.pdf
 **/*Confirmation Letter*.pdf
 202*.PDF
+node_modules/
+.next/
+out/
+*.tsbuildinfo

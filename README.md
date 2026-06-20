@@ -1,24 +1,38 @@
-# AuditForge
+# MVForge — Forge Family Monorepo
 
-AI business assessment platform for MV Forge — structured intake, Claude-powered analysis, client reports, and upsell tracking.
+**MVForge Systems LLC** · Ohio · Veteran-owned  
+**Tagline:** Forge Your Sovereignty
 
-## What's here
+Sovereign technology company. Product suite: **AuditForge**, **DomainForge**, **ForgeWorks**, **Sovereign Dashboard**.
 
 | Path | Purpose |
 |------|---------|
-| `assessment/` | Python CLI pipeline, prompts, Retell webhook |
-| `assessment/HERMES_BUILD_PROMPT.md` | Web app build spec (Hermes + Cursor) |
-| `assessment/templates/` | Gamma report template + section mapping |
-| `.env.example` | API keys and config template |
+| [docs/BRANDING.md](docs/BRANDING.md) | Canonical brand & product architecture |
+| [apps/hub](apps/hub) | mvforge.io marketing site |
+| [apps/auditforge](apps/auditforge) | AuditForge marketing site |
+| [apps/forgeworks](apps/forgeworks) | ForgeWorks marketing (+ `/cyberwarrior` campaign) |
+| [apps/domainforge](apps/domainforge) | DomainForge landing (Phase 3 scanner stub) |
+| [packages/brand](packages/brand) | Shared design tokens & components |
+| [assessment/](assessment/) | AuditForge Python audit pipeline |
+| [docs/DEPLOY.md](docs/DEPLOY.md) | Vercel reconnect instructions |
 
-## Quick start
+## Quick start (marketing sites)
+
+```bash
+npm install
+npm run dev:hub          # http://localhost:3000
+npm run dev:auditforge   # http://localhost:3001
+npm run dev:forgeworks   # http://localhost:3002  (+ /cyberwarrior)
+npm run dev:domainforge  # http://localhost:3003
+```
+
+## Quick start (AuditForge pipeline)
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r assessment/requirements.txt
 cp .env.example .env
-# Add ANTHROPIC_API_KEY to .env
 
 python -m assessment.src run \
   -t assessment/samples/example_transcript.txt \
@@ -26,17 +40,22 @@ python -m assessment.src run \
   -i wedding_venue
 ```
 
-See [assessment/README.md](assessment/README.md) for full documentation.
+See [assessment/README.md](assessment/README.md) for full pipeline docs.
+
+## Vercel deployment
+
+Deploy each app as a separate Vercel project from this monorepo:
+
+| Vercel project | Root directory | Domain (target) |
+|----------------|----------------|-----------------|
+| mvforge-hub | `apps/hub` | mvforge.io |
+| mvforge-auditforge | `apps/auditforge` | auditforge.mvforge.io |
+| mvforge-forgeworks | `apps/forgeworks` | forgeworks.mvforge.io |
+| mvforge-domainforge | `apps/domainforge` | domainforge.mvforge.io |
+
+See [docs/DEPLOY.md](docs/DEPLOY.md) for reconnect steps.
 
 ## Agents
 
-**Repo:** https://github.com/mvill72/auditforge
-
-- **Cursor** — Python pipeline, prompts, integrations
-- **Hermes** — Next.js web app — paste `assessment/HERMES_ONBOARDING.md` to sync, then read `assessment/HERMES_BUILD_PROMPT.md`
-
-## Deploy (CasaOS)
-
-```bash
-git clone https://github.com/mvill72/auditforge.git /DATA/Documents/auditforge
-```
+- Read [docs/BRANDING.md](docs/BRANDING.md) before any public copy changes
+- Read [AGENTS.md](AGENTS.md) for pipeline and Hermes coordination

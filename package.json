@@ -1,0 +1,19 @@
+{
+  "name": "mvforge",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:hub": "npm run dev -w @mvforge/hub",
+    "dev:auditforge": "npm run dev -w @mvforge/auditforge",
+    "dev:forgeworks": "npm run dev -w @mvforge/forgeworks",
+    "dev:domainforge": "npm run dev -w @mvforge/domainforge",
+    "build:hub": "npm run build -w @mvforge/hub",
+    "build:auditforge": "npm run build -w @mvforge/auditforge",
+    "build:forgeworks": "npm run build -w @mvforge/forgeworks",
+    "build:domainforge": "npm run build -w @mvforge/domainforge",
+    "build": "npm run build:hub && npm run build:auditforge && npm run build:forgeworks && npm run build:domainforge"
+  }
+}

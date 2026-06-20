@@ -1,0 +1,48 @@
+:root {
+  --forge-black: #0a0a0b;
+  --forge-gray-950: #111113;
+  --forge-gray-900: #18181b;
+  --forge-gray-800: #27272a;
+  --forge-gray-600: #52525b;
+  --forge-gray-400: #a1a1aa;
+  --forge-gray-200: #e4e4e7;
+  --forge-orange: #f97316;
+  --forge-orange-glow: #fb923c;
+  --forge-red: #ef4444;
+  --forge-silver: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--forge-black);
+  color: var(--forge-gray-200);
+  font-family: var(--font-geist-sans, system-ui, -apple-system, sans-serif);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.forge-gradient-text {
+  background: linear-gradient(135deg, var(--forge-orange-glow), var(--forge-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.forge-glow {
+  box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+}
+
+.forge-grid-bg {
+  background-image:
+    linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
