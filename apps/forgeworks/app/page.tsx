@@ -185,7 +185,7 @@ export default function ForgeWorksPage() {
               acquisition, valuation, and brand-fit analysis for your digital
               real estate.
             </p>
-            <ForgeButton href={`mailto:${COMPANY.email}?subject=DomainForge%20Inquiry`} variant="secondary">
+            <ForgeButton href={LINKS.domainforge} variant="secondary">
               Explore DomainForge
             </ForgeButton>
           </div>
