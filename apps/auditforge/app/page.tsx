@@ -2,6 +2,7 @@ import {
   Card,
   COMPANY,
   ForgeButton,
+  ForgeLogo,
   LINKS,
   SectionLabel,
   SiteFooter,
@@ -77,15 +78,6 @@ const TIERS = [
   },
 ];
 
-function Logo() {
-  return (
-    <a href="/" className="logo-mark">
-      <span className="logo-icon">A</span>
-      <span>AuditForge</span>
-    </a>
-  );
-}
-
 function Nav() {
   return (
     <nav className="nav-links">
@@ -101,7 +93,7 @@ export default function AuditForgePage() {
   return (
     <>
       <SiteHeader
-        logo={<Logo />}
+        logo={<ForgeLogo name="AuditForge" />}
         nav={<Nav />}
         badge="COMPLIANCE & SECURITY FORGE"
       />
@@ -115,9 +107,9 @@ export default function AuditForgePage() {
             <span className="forge-gradient-text">from chaos.</span>
           </h1>
           <p className="lead">
-            Transform complex compliance, security, and infrastructure audits into
-            automated, traceable, professional deliverables — faster, cheaper,
-            sovereign.
+            The veteran-engineer&apos;s audit automation platform — compliance,
+            security, and infrastructure reviews turned into traceable,
+            defensible deliverables. Freemium self-hosted → $149/mo Pro.
           </p>
           <div className="hero-actions">
             <ForgeButton href={`mailto:${COMPANY.email}?subject=AuditForge%20Assessment`}>

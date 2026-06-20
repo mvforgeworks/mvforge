@@ -1,65 +1,140 @@
 # Vercel Deployment — MVForge Monorepo
 
-Each Forge marketing site is a separate Vercel project pointing at **this repo** with a different **Root Directory**.
+**GitHub:** https://github.com/mvforgeworks/mvforge
 
-## Project matrix
+Each Forge marketing site is a **separate Vercel project** pointing at this monorepo with a different **Root Directory**.
 
-| Vercel project (existing) | Root Directory | Workspace | Target domain |
-|---------------------------|----------------|-----------|---------------|
-| `mvforge-io-five` (or new) | `apps/hub` | `@mvforge/hub` | `mvforge.io` |
-| `auditforge-local` | `apps/auditforge` | `@mvforge/auditforge` | `auditforge.mvforge.io` |
-| `forgeworks-taupe` | `apps/forgeworks` | `@mvforge/forgeworks` | `forgeworks.mvforge.io` |
-| *(create new)* | `apps/domainforge` | `@mvforge/domainforge` | `domainforge.mvforge.io` |
+---
 
-Each app includes a `vercel.json` that installs from the monorepo root and builds the correct workspace.
+## 1. Project matrix
 
-## Reconnect an existing project
+| Vercel project | Root Directory | Workspace | Target domain |
+|----------------|----------------|-----------|---------------|
+| `mvforge-io` (existing) | `apps/hub` | `@mvforge/hub` | `mvforge.io` |
+| `auditforge` (existing) | `apps/auditforge` | `@mvforge/auditforge` | `auditforge.mvforge.io` |
+| `forgeworks` (existing) | `apps/forgeworks` | `@mvforge/forgeworks` | `forgeworks.mvforge.io` |
+| `domainforge` (existing) | `apps/domainforge` | `@mvforge/domainforge` | `domainforge.mvforge.io` |
 
-1. Open [Vercel Dashboard](https://vercel.com/dashboard) → select project
-2. **Settings → General → Root Directory** → set to `apps/hub` (or matching app)
-3. **Settings → Git** → confirm repo is connected; trigger redeploy on `main`
-4. **Settings → Domains** → add custom domain when ready
+---
 
-No environment variables required for static marketing sites.
+## 2. Reconnect existing projects (5 min each)
 
-## Create DomainForge project
+For **each** Vercel project:
 
-1. **Add New → Project** → import same GitHub repo
-2. Root Directory: `apps/domainforge`
-3. Framework: Next.js (auto-detected)
-4. Deploy → assign `domainforge.mvforge.io`
+1. [Vercel Dashboard](https://vercel.com/dashboard) → select project
+2. **Settings → Git**
+   - Connect repo: `mvforgeworks/mvforge`
+   - Production branch: `main`
+3. **Settings → General → Root Directory**
+   - Enable override → set path from table above
+4. **Settings → General → Build & Development**
+   - Framework: Next.js
+   - Install / Build commands: **leave blank** — each `vercel.json` handles this
+5. **Deployments → Redeploy** latest `main`
 
-## CyberWarrior campaign route
+### Verify build logs show:
+```
+npm install --prefix ../..
+npm run build --prefix ../.. -w @mvforge/hub
+```
+(workspace name varies per project)
 
-Landlord/security wedge lives at **`/cyberwarrior`** on the ForgeWorks deployment:
+---
 
-- Preview: `https://forgeworks-taupe.vercel.app/cyberwarrior`
+## 3. vercel.json reference (per app)
+
+Each app ships a full config with monorepo install/build, security headers, and redirects.
+
+### Hub (`apps/hub/vercel.json`)
+- Redirects `/cyberwarrior` and `/digital-shield` → ForgeWorks campaign
+- Security headers on all routes
+
+### AuditForge (`apps/auditforge/vercel.json`)
+- `/demo` → `/#features`
+- `/assessment` → mailto intake
+
+### ForgeWorks (`apps/forgeworks/vercel.json`)
+- `/landlords`, `/property` → `/cyberwarrior`
+- `/local-seo` → `/` (301 — retires legacy trades SEO)
+
+### DomainForge (`apps/domainforge/vercel.json`)
+- `/scanner` → `/#features` (until MVP ships)
+- `/waitlist` → mailto intake
+
+---
+
+## 4. Environment variables
+
+### Marketing sites (current)
+**None required.** All four apps are static Next.js pages.
+
+### DomainForge scanner MVP (Phase 3 — see [DOMAINFORGE_MVP.md](DOMAINFORGE_MVP.md))
+
+| Variable | App | When |
+|----------|-----|------|
+| `DATABASE_URL` | domainforge | Scanner v0.1 |
+| `CRON_SECRET` | domainforge | Vercel Cron ingest |
+| `RESEND_API_KEY` | domainforge | Email alerts |
+| `STRIPE_SECRET_KEY` | domainforge | Pro tier checkout |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | domainforge | Client checkout |
+
+### AuditForge app (future — pipeline wrapper)
+
+| Variable | App | When |
+|----------|-----|------|
+| `ANTHROPIC_API_KEY` | auditforge | Web pipeline |
+| `DATABASE_URL` | auditforge | Client/assessment CRUD |
+
+Set in Vercel → Project → Settings → Environment Variables. Scope to Production + Preview as needed.
+
+---
+
+## 5. CyberWarrior campaign route
+
+Landlord/security wedge: **`/cyberwarrior`** on ForgeWorks only.
+
 - Production: `https://forgeworks.mvforge.io/cyberwarrior`
+- Hub redirects `/cyberwarrior` to ForgeWorks (see hub `vercel.json`)
 
-Not a separate Vercel project — keeps master brand on MVForge hub.
+---
 
-## Local verify before deploy
+## 6. DNS cutover
+
+| Record | Host | Value |
+|--------|------|-------|
+| A / CNAME | `@` on mvforge.io | Vercel-assigned |
+| CNAME | `auditforge` | `cname.vercel-dns.com` |
+| CNAME | `forgeworks` | `cname.vercel-dns.com` |
+| CNAME | `domainforge` | `cname.vercel-dns.com` |
+
+Add each domain in the matching Vercel project → Settings → Domains.
+
+---
+
+## 7. Local verify
 
 ```bash
-npm install
-npm run build
+git clone https://github.com/mvforgeworks/mvforge.git
+cd mvforge && npm install && npm run build
 npm run dev:hub          # :3000
 npm run dev:auditforge   # :3001
 npm run dev:forgeworks   # :3002  (+ /cyberwarrior)
 npm run dev:domainforge  # :3003
 ```
 
-## DNS (when cutting over from *.vercel.app)
+---
 
-| Record | Host | Value |
-|--------|------|-------|
-| A / CNAME | `@` | Vercel (see domain settings) |
-| CNAME | `auditforge` | `cname.vercel-dns.com` |
-| CNAME | `forgeworks` | `cname.vercel-dns.com` |
-| CNAME | `domainforge` | `cname.vercel-dns.com` |
+## 8. Troubleshooting
 
-## Troubleshooting
+| Error | Fix |
+|-------|-----|
+| `Cannot find module '@mvforge/brand'` | Root Directory must be `apps/<name>`, not repo root |
+| Wrong site content | Each project needs unique Root Directory |
+| Build runs from wrong workspace | Check `buildCommand` in that app's `vercel.json` |
+| Legacy trades SEO URLs | ForgeWorks redirects `/local-seo` → `/` |
 
-**`Cannot find module '@mvforge/brand'`** — Root Directory must be `apps/<name>`, not repo root. The `vercel.json` install command runs `npm install --prefix ../..` to resolve workspaces.
+---
 
-**Wrong site deploys** — Each Vercel project must have a unique Root Directory. Do not point multiple projects at repo root.
+## 9. Migrating from old per-repo deploys
+
+Previous separate repos (`mvforgeworks/mvforge-io`, `auditforge`, `forgeworks`, `domainforge`) can be archived after Vercel projects point at `mvforgeworks/mvforge` monorepo.

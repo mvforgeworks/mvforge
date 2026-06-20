@@ -2,6 +2,7 @@ import {
   Card,
   COMPANY,
   ForgeButton,
+  ForgeLogo,
   LINKS,
   SectionLabel,
   SiteFooter,
@@ -70,15 +71,6 @@ const PACKAGES = [
   },
 ];
 
-function Logo() {
-  return (
-    <a href="/" className="logo-mark">
-      <span className="logo-icon">W</span>
-      <span>ForgeWorks</span>
-    </a>
-  );
-}
-
 function Nav() {
   return (
     <nav className="nav-links">
@@ -95,7 +87,7 @@ export default function ForgeWorksPage() {
   return (
     <>
       <SiteHeader
-        logo={<Logo />}
+        logo={<ForgeLogo name="ForgeWorks" />}
         nav={<Nav />}
         badge="PROFESSIONAL SERVICES FORGE"
       />
@@ -109,8 +101,8 @@ export default function ForgeWorksPage() {
             <span className="forge-gradient-text">under fire, on your terms.</span>
           </h1>
           <p className="lead">
-            Productized sovereign deployments, workshops, and white-glove
-            implementation for veterans, MSPs, and engineers who refuse
+            Fixed-price sovereign deployments from $800 — homelab, VPN, workshops,
+            and white-glove implementation for veterans and engineers who refuse
             dependency.
           </p>
           <div className="hero-actions">

@@ -1,4 +1,5 @@
 :root {
+  /* Core palette */
   --forge-black: #0a0a0b;
   --forge-gray-950: #111113;
   --forge-gray-900: #18181b;
@@ -6,10 +7,36 @@
   --forge-gray-600: #52525b;
   --forge-gray-400: #a1a1aa;
   --forge-gray-200: #e4e4e7;
+
+  /* Forge fire */
   --forge-orange: #f97316;
   --forge-orange-glow: #fb923c;
+  --forge-orange-ember: #ea580c;
   --forge-red: #ef4444;
+
+  /* Metallic */
   --forge-silver: #94a3b8;
+  --forge-steel: #64748b;
+
+  /* Gradients */
+  --forge-gradient: linear-gradient(135deg, var(--forge-orange-glow) 0%, var(--forge-orange) 45%, var(--forge-red) 100%);
+  --forge-gradient-subtle: linear-gradient(180deg, rgba(249, 115, 22, 0.08) 0%, transparent 100%);
+
+  /* Layout */
+  --forge-container: 1120px;
+  --forge-section: 4rem;
+  --forge-radius-sm: 0.375rem;
+  --forge-radius-md: 0.5rem;
+  --forge-radius-lg: 0.75rem;
+
+  /* Effects */
+  --forge-shadow-glow: 0 0 40px rgba(249, 115, 22, 0.15);
+  --forge-shadow-glow-strong: 0 0 60px rgba(249, 115, 22, 0.25);
+  --forge-shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --forge-font-sans: var(--font-geist-sans, "Inter", system-ui, -apple-system, sans-serif);
+  --forge-font-mono: ui-monospace, "SF Mono", "Cascadia Code", monospace;
 }
 
 * {
@@ -20,8 +47,9 @@ body {
   margin: 0;
   background: var(--forge-black);
   color: var(--forge-gray-200);
-  font-family: var(--font-geist-sans, system-ui, -apple-system, sans-serif);
+  font-family: var(--forge-font-sans);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -30,19 +58,41 @@ a {
 }
 
 .forge-gradient-text {
-  background: linear-gradient(135deg, var(--forge-orange-glow), var(--forge-red));
+  background: var(--forge-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .forge-glow {
-  box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+  box-shadow: var(--forge-shadow-glow);
+}
+
+.forge-glow-strong {
+  box-shadow: var(--forge-shadow-glow-strong);
 }
 
 .forge-grid-bg {
+  background-color: var(--forge-black);
   background-image:
     linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+    var(--forge-gradient-subtle);
+  background-size: 48px 48px, 48px 48px, 100% 480px;
+  background-repeat: repeat, repeat, no-repeat;
+}
+
+.forge-mark-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent !important;
+  border-radius: var(--forge-radius-md);
+}
+
+.logo-icon.forge-mark-wrap svg {
+  display: block;
 }

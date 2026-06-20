@@ -2,5 +2,27 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "npm install --prefix ../..",
-  "buildCommand": "npm run build --prefix ../.. -w @mvforge/domainforge"
+  "buildCommand": "npm run build --prefix ../.. -w @mvforge/domainforge",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/scanner",
+      "destination": "/#features",
+      "permanent": false
+    },
+    {
+      "source": "/waitlist",
+      "destination": "mailto:forge@mvforge.io?subject=DomainForge%20Waitlist",
+      "permanent": false
+    }
+  ]
 }

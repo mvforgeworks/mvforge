@@ -1,6 +1,7 @@
 # Agent instructions — MVForge
 
 **Company:** MVForge Systems LLC · Ohio · Veteran-owned  
+**GitHub:** https://github.com/mvforgeworks/mvforge  
 **Brand reference:** [docs/BRANDING.md](docs/BRANDING.md)
 
 ## Monorepo layout

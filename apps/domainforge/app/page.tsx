@@ -2,6 +2,7 @@ import {
   Card,
   COMPANY,
   ForgeButton,
+  ForgeLogo,
   LINKS,
   SectionLabel,
   SiteFooter,
@@ -63,15 +64,6 @@ const TIERS = [
   },
 ];
 
-function Logo() {
-  return (
-    <a href="/" className="logo-mark">
-      <span className="logo-icon">D</span>
-      <span>DomainForge</span>
-    </a>
-  );
-}
-
 function Nav() {
   return (
     <nav className="nav-links">
@@ -86,7 +78,7 @@ function Nav() {
 export default function DomainForgePage() {
   return (
     <>
-      <SiteHeader logo={<Logo />} nav={<Nav />} badge="DOMAIN INTELLIGENCE FORGE" />
+      <SiteHeader logo={<ForgeLogo name="DomainForge" />} nav={<Nav />} badge="DOMAIN INTELLIGENCE FORGE" />
 
       <main>
         <section className="hero container">

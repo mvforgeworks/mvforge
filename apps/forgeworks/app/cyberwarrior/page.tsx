@@ -5,6 +5,7 @@ import {
   COMPANY,
   CYBERWARRIOR,
   ForgeButton,
+  ForgeLogo,
   LINKS,
   SectionLabel,
   SiteFooter,
@@ -32,15 +33,6 @@ const OFFERS = [
   },
 ];
 
-function Logo() {
-  return (
-    <a href="/" className="logo-mark">
-      <span className="logo-icon">W</span>
-      <span>ForgeWorks</span>
-    </a>
-  );
-}
-
 function Nav() {
   return (
     <nav className="nav-links">
@@ -54,7 +46,7 @@ function Nav() {
 export default function CyberWarriorPage() {
   return (
     <>
-      <SiteHeader logo={<Logo />} nav={<Nav />} badge={CYBERWARRIOR.subtagline} />
+      <SiteHeader logo={<ForgeLogo name="ForgeWorks" href="/" />} nav={<Nav />} badge={CYBERWARRIOR.subtagline} />
 
       <main>
         <section className="hero container">
